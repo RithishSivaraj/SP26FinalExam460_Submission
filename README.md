@@ -60,13 +60,9 @@
 
 ## Part 3: Algorithm Correctness
 
-> Document your understanding of why Dijkstra produces correct distances.
-> Bullet points and short sentences throughout. No paragraphs.
 
 ### Part 3a: What the Invariant Means
 
-> Two bullets: one for finalized nodes, one for non-finalized nodes.
-> Do not copy the invariant text from the spec.
 
 - **For nodes already finalized (in S):**
   _These recorded distances are guaranteed to be the actual minimum distance possible. From this point, it isn't possible to find a shorter distance than these recorded ones._
@@ -76,7 +72,6 @@
 
 ### Part 3b: Why Each Phase Holds
 
-> One to two bullets per phase. Maintenance must mention nonnegative edge weights.
 
 - **Initialization : why the invariant holds before iteration 1:**
   _Before even the first step executes, the source node distance is 0 and all the nodes are set to inf. Also we haven't finalized any nodes yet, so the invariant holds._
@@ -89,7 +84,6 @@
 
 ### Part 3c: Why This Matters for the Route Planner
 
-> One sentence connecting correct distances to correct routing decisions.
 
 _Ensuring that we have the correct distance, will allow the routing decisions to be made correctly by comparing the visitation orders to choose the route with the least amount of fuel used, 
 and having an incorrect ordering could produce a route that does not minimize fuel cost._
@@ -100,20 +94,17 @@ and having an incorrect ordering could produce a route that does not minimize fu
 
 ### Why Greedy Fails
 
-> State the failure mode. Then give a concrete counter-example using specific node names
-> or costs (you may use the illustration example from the spec). Three to five bullets.
 
-- **The failure mode:** _Your answer here._
-- **Counter-example setup:** _Your answer here._
-- **What greedy picks:** _Your answer here._
-- **What optimal picks:** _Your answer here._
-- **Why greedy loses:** _Your answer here._
+- **The failure mode:** _The greedy algorithm will only choose the next shortest path to a relic, and doesn't account for how that choice can cause the overall route to end up more expensive than need be._
+- **Counter-example setup:** _Consider nodes A, B, C with spawn S and exit T, with costs: S -> A = 1, S -> B = 2, S -> C = 2, A -> B = 100, A -> C = 100, B -> C = 1, C -> A = 1, and A -> T = 1.
+- **What greedy picks:** _S -> A -> B -> C -> T, which has a total cost of 103._
+- **What optimal picks:** _S -> B -> C -> A -> T, with a total cost of 5_
+- **Why greedy loses:** _Greedy loses because by picking the choice which would procure the smallest cost now, it fails to consider that it could be navigating to a more expensive choice later._
 
 ### What the Algorithm Must Explore
 
-> One bullet. Must use the word "order."
 
-- _Your answer here._
+- _The algorithm has to explore all the different orders of visitation between S to all the relics. This is because the total cost depends on the entire sequence and not just the immediate next choice, and we want to minimize the total cost._
 
 ---
 

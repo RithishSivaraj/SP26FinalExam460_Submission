@@ -209,7 +209,21 @@ def explain_search():
 
     TODO
     """
-    return "TODO"
+    return """
+    -Why Greedy Fails
+    The failure mode: The greedy algorithm will only choose the next shortest path to a relic, and doesn't account for how 
+    that choice can cause the overall route to end up more expensive than need be.
+    Counter-example setup: _Consider nodes A, B, C with spawn S and exit T, with costs: S -> A = 1, S -> B = 2, S -> C = 2, 
+    A -> B = 100, A -> C = 100, B -> C = 1, C -> A = 1, and A -> T = 1.
+    What greedy picks: S -> A -> B -> C -> T, which has a total cost of 103.
+    What optimal picks: S -> B -> C -> A -> T, with a total cost of 5
+    Why greedy loses: Greedy loses because by picking the choice which would procure the smallest cost now, it fails to 
+    consider that it could be navigating to a more expensive choice later.
+    
+    What the Algorithm Must Explore
+    The algorithm has to explore all the different orders of visitation between S to all the relics. This is because the total 
+    cost depends on the entire sequence and not just the immediate next choice, and we want to minimize the total cost.
+    """
 
 
 # =============================================================================

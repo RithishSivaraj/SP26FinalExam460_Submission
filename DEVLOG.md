@@ -41,11 +41,11 @@ I will be making my second commit now._
 _Finished my responses for the three parts in algorithm correctness. Also updated torchbearer.py with the return for those answers. I am now going to make another commit, but I will add a few more entry spots onto the dev log for future entries._
 
 ---
-## Entry 4 – [Date]: [Description]
+## Entry 4 – 05/14: Part 4: Search Design
 
 
 
-_Your entry here._
+_Completed my responses for part 4 of the assignment. I updated torchbearer.py with the return of those responses to reflect. Will be commiting again now._
 
 ---
 ## Entry 5 – [Date]: [Description]
