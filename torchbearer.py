@@ -2,8 +2,8 @@
 CS 460 – Algorithms: Final Programming Assignment
 The Torchbearer
 
-Student Name: ___________________________
-Student ID:   ___________________________
+Student Name: Rithish Sivaraj
+Student ID:   828614313
 
 INSTRUCTIONS
 ------------
@@ -34,7 +34,18 @@ def explain_problem():
 
     TODO
     """
-    return "TODO"
+
+    return """
+    Why a single shortest-path run from S is not enough:
+    - The single shortest-path run from S only determines the cheapest cost from S to all the individual nodes.
+    - Specifically, it doesn't make a decision on which of the chambers holding relics should be visited next, and what sequence it should follow for all the relics to be collected before exiting.
+
+    What decision remains after all inter-location costs are known:
+    - Finding the order the chambers with the relics should be visited before exiting, while still minimizing the fuel cost.
+
+    Why this requires a search over orders (one sentence):
+    - This is because the cost depends on the sequence that the chambers are all visited, so multiple orders need to be checked to find the path costing the least.
+    """
 
 
 # =============================================================================

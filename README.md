@@ -1,7 +1,7 @@
 # The Torchbearer
 
-**Student Name:** ___________________________
-**Student ID:** ___________________________
+**Student Name:** Rithish Sivaraj   
+**Student ID:** 828614313   
 **Course:** CS 460 – Algorithms | Spring 2026
 
 > This README is your project documentation. Write it the way a developer would document
@@ -13,17 +13,17 @@
 
 ## Part 1: Problem Analysis
 
-> Document why this problem is not just a shortest-path problem. Three bullet points, one
-> per question. Each bullet should be 1-2 sentences max.
+
 
 - **Why a single shortest-path run from S is not enough:**
-  _Your answer here._
+  * The single shortest-path run from S only determines the cheapest cost from S to all the individual nodes.
+  * Specifically, it doesn't make a decision on which of the chambers holding relics should be visited next, and what sequence it should follow for all the relics to be collected before exiting.
 
 - **What decision remains after all inter-location costs are known:**
-  _Your answer here._
+  * Finding the order the chambers with the relics should be visited before exiting, while still minimizing the fuel cost.
 
 - **Why this requires a search over orders (one sentence):**
-  _Your answer here._
+  * This is because the cost depends on the sequence that the chambers are all visited, so multiple orders need to be checked to find the path costing the least.
 
 ---
 
