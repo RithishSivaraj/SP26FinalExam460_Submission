@@ -3,17 +3,12 @@
 **Student Name:** Rithish Sivaraj  
 **Student ID:** 828614313
 
-> Instructions: Write at least four dated entries. Required entry types are marked below.
-> Two to five sentences per entry is sufficient. Write entries as you go, not all in one
-> sitting. Graders check that entries reflect genuine work across multiple sessions.
-> Delete all blockquotes before submitting.
+
 
 ---
 
 ## Entry 1 – 05/14: Initial Plan
 
-> Required. Write this before writing any code. Describe your plan: what you will
-> implement first, what parts you expect to be difficult, and how you plan to test.
 
 _I have already answered the problem analysis part. Since that doesn't really require any code. I will most probably first precompute the shortest distances between 
 the nodes using Dijikstras algorithm as described by the steps. I think the recursive search and figuring out the pruning logic will be the hardest task to do in this assignment. 
@@ -25,8 +20,7 @@ in torchbearer.py._
 
 ## Entry 2 – 05/14: Part 2: Precomputation Design
 
-> Required. At least one entry must describe a bug, wrong assumption, or design change
-> you encountered. Describe what went wrong and how you resolved it.
+
 
 _I just completed the README portion and the coding portion for part 2. I came upon a wrongful assumption on this section. 
 Initially, I assumed that the exit node also needed to be added to the list of sources, and wrote my code as such, appending the exit node to the sources. 
@@ -55,26 +49,24 @@ _Completed my responses for part 4 of the assignment. I updated torchbearer.py w
 _Completed implementing the functions from part 5 and 6, and also completed solve(). I ran into a few bugs due to syntax but fixed them all and passing all the tests now. I also finished the README portion of 5 and still need to complete 6. I will be making another commit now._
 
 ---
-## Entry 6 – [Date]: [Description]
+## Entry 6 – 05/14: Part 6: Pruning README.md Completed
 
 
 
-_Your entry here._
+_Completed the README.md for part 6 and also added my references. Removed the additional instruction blocks. Filled out the time estimate, but it might be slightly off since I didn't really calculate the time correctly._
 
 ---
 
-## Entry 7 – [Date]: Post-Implementation Reflection
+## Entry 7 – 05/14: Post-Implementation Reflection
 
-> Required. Written after your implementation is complete. Describe what you would
-> change or improve given more time.
 
-_Your entry here._
+
+_I have now completed the full implementation. After completion, I have better understood how we can use recursive searches and also shortest path preprocessing. Given more time I would maybe try to improve the recursive search since the visitation order number will grow extremely large when more relics get added by maybe enforcing earlier elimination of routes that aren't possible or perhaps a tighter pruning system._
 
 ---
 
 ## Final Entry – [Date]: Time Estimate
 
-> Required. Estimate minutes spent per part. Honesty is expected; accuracy is not graded.
 
 | Part | Estimated Hours |
 |---|-----------------|
@@ -82,8 +74,8 @@ _Your entry here._
 | Part 2: Precomputation Design | 1.5             |
 | Part 3: Algorithm Correctness | 0.75            |
 | Part 4: Search Design | 0.5             |
-| Part 5: State and Search Space |                 |
-| Part 6: Pruning |                 |
-| Part 7: Implementation |                 |
-| README and DEVLOG writing |                 |
-| **Total** |                 |
+| Part 5: State and Search Space | 1               |
+| Part 6: Pruning | 1               |
+| Part 7: Implementation | 1               |
+| README and DEVLOG writing | 0.75            |
+| **Total** | 6.2             |

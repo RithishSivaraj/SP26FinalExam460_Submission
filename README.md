@@ -4,10 +4,7 @@
 **Student ID:** 828614313   
 **Course:** CS 460 – Algorithms | Spring 2026
 
-> This README is your project documentation. Write it the way a developer would document
-> their design decisions , bullet points, brief justifications, and concrete examples where
-> required. You are not writing an essay. You are explaining what you built and why you built
-> it that way. Delete all blockquotes like this one before submitting.
+
 
 ---
 
@@ -112,8 +109,7 @@ and having an incorrect ordering could produce a route that does not minimize fu
 
 ### Part 5a: State Representation
 
-> Document the three components of your search state as a table.
-> Variable names here must match exactly what you use in torchbearer.py.
+
 
 | Component | Variable name in code | Data type  | Description                                             |
 |---|-----------------------|------------|---------------------------------------------------------|
@@ -123,7 +119,7 @@ and having an incorrect ordering could produce a route that does not minimize fu
 
 ### Part 5b: Data Structure for Visited Relics
 
-> Fill in the table.
+
 
 | Property | Your answer                                                                                                                      |
 |---|----------------------------------------------------------------------------------------------------------------------------------|
@@ -135,7 +131,7 @@ and having an incorrect ordering could produce a route that does not minimize fu
 
 ### Part 5c: Worst-Case Search Space
 
-> Two bullets.
+
 
 - **Worst-case number of orders considered:** _k!_
 - **Why:** _In the worst case, we may need to go through every single order of relic visitation possible._
@@ -146,30 +142,28 @@ and having an incorrect ordering could produce a route that does not minimize fu
 
 ### Part 6a: Best-So-Far Tracking
 
-> Three bullets.
 
-- **What is tracked:** _Your answer here._
-- **When it is used:** _Your answer here._
-- **What it allows the algorithm to skip:** _Your answer here._
+
+- **What is tracked:** _Best is being tracked. Best is a list which has both the lowest total fuel cost found so far, and the corresponding order of visitation for the relics._
+- **When it is used:** _Best will be updated everytime a route completes and has a lower total fuel cost than whatever is currently stored._
+- **What it allows the algorithm to skip:** _Keeping track of best allows the algorithm to stop uneccessarily exploring a route still being explored which already has a cost which is greater than or equal to the current best cost._
 
 ### Part 6b: Lower Bound Estimation
 
-> Three bullets.
 
-- **What information is available at the current state:** _Your answer here._
-- **What the lower bound accounts for:** _Your answer here._
-- **Why it never overestimates:** _Your answer here._
+- **What information is available at the current state:** _At the current state, we know which relics are remaining, the current location, how much fuel has been used already, and also the best route till now._
+- **What the lower bound accounts for:** _It accounts for the lowest possible cost the branch being explored can complete its route with, since the fuel already used has to be part of the final route._
+- **Why it never overestimates:** _It never overestimates since it will never subtract cost, and can only add cost._
 
 ### Part 6c: Pruning Correctness
 
-> One to two bullets. Explain why pruning is safe.
 
-- _Your answer here._
+- _Pruning is safe because if the current route being searched is already more costly than a route which exists that has completed, then going further down the current route will only add more cost to it. From this, we see that this costlier route will only continue becoming costlier. Since all the edges are non-negative, the current branch cannot suddenly become cheaper, so from this, pruning won't toss the optimal solution either._
 
 ---
 
 ## References
 
-> Bullet list. If none beyond lecture notes, write that.
 
-- _Your references here._
+- _Lecture Notes_
+- _Python docs_
