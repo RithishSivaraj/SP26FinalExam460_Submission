@@ -36,13 +36,34 @@ I will be making my second commit now._
 
 ---
 
-## Entry 3 – [Date]: [Short description]
+## Entry 3 – 05/14: Part 3: Algorithm Correctness
+
+_Finished my responses for the three parts in algorithm correctness. Also updated torchbearer.py with the return for those answers. I am now going to make another commit, but I will add a few more entry spots onto the dev log for future entries._
+
+---
+## Entry 4 – [Date]: [Description]
+
+
+
+_Your entry here._
+
+---
+## Entry 5 – [Date]: [Description]
+
+
+
+_Your entry here._
+
+---
+## Entry 6 – [Date]: [Description]
+
+
 
 _Your entry here._
 
 ---
 
-## Entry 4 – [Date]: Post-Implementation Reflection
+## Entry 7 – [Date]: Post-Implementation Reflection
 
 > Required. Written after your implementation is complete. Describe what you would
 > change or improve given more time.
@@ -59,7 +80,7 @@ _Your entry here._
 |---|-----------------|
 | Part 1: Problem Analysis | 0.7             |
 | Part 2: Precomputation Design | 1.5             |
-| Part 3: Algorithm Correctness |                 |
+| Part 3: Algorithm Correctness | 0.75            |
 | Part 4: Search Design |                 |
 | Part 5: State and Search Space |                 |
 | Part 6: Pruning |                 |

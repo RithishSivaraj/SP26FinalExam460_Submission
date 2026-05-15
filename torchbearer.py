@@ -167,7 +167,32 @@ def dijkstra_invariant_check():
 
     TODO
     """
-    return "TODO"
+    return """
+    What the Invariant Means:
+    - For nodes already finalized (in S): These recorded distances are guaranteed to be the actual minimum distance possible. 
+      From this point, it isn't possible to find a shorter distance than these recorded ones.
+
+    - For nodes not yet finalized (not in S): The distances recorded here are currently the shortest path discovered, using 
+    the nodes that are already finalized to go through as steps. But there is still a possibility that a cheaper or shorter 
+    path exists going through nodes that haven't been finalized.
+      
+    Why Each Phase Holds:
+    Initialization : why the invariant holds before iteration 1: Before even the first step executes, the source node 
+    distance is 0 and all the nodes are set to inf. Also we haven't finalized any nodes yet, so the invariant holds.
+    
+    Maintenance : why finalizing the min-dist node is always correct: Finalizing the min-dist node is always correct 
+    because this node will have the smallest distance tentatively, and since all the edge weights are non-negative. 
+    This means that a later path with a smaller distance to that same node, can't be produced.
+
+    Termination : what the invariant guarantees when the algorithm ends: When the algorithm finishes running, the heap 
+    is empty and all the reachable nodes are already finalized with their actual shortest path from the source node. 
+    Also, the nodes with inf still are unreachable.
+    
+    Why This Matters for the Route Planner:
+    Ensuring that we have the correct distance, will allow the routing decisions to be made correctly by comparing the visitation 
+    orders to choose the route with the least amount of fuel used, and having an incorrect ordering could produce a route that does 
+    not minimize fuel cost.
+    """
 
 
 # =============================================================================

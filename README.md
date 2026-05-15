@@ -31,7 +31,6 @@
 
 ### Part 2a: Source Selection
 
-> List the source node types as a bullet list. For each, one-line reason.
 
 | Source Node Type | Why it is a source                                                                                                |
 |------------------|-------------------------------------------------------------------------------------------------------------------|
@@ -40,7 +39,6 @@
 
 ### Part 2b: Distance Storage
 
-> Fill in the table. No prose required.
 
 | Property | Your answer                                                                                    |
 |---|------------------------------------------------------------------------------------------------|
@@ -52,7 +50,6 @@
 
 ### Part 2c: Precomputation Complexity
 
-> State the total complexity and show the arithmetic. Two to three lines max.
 
 - **Number of Dijkstra runs:** _for r number of relics, it would be r + 1_
 - **Cost per run:** _O(m log n)_
@@ -72,29 +69,30 @@
 > Do not copy the invariant text from the spec.
 
 - **For nodes already finalized (in S):**
-  _Your answer here._
+  _These recorded distances are guaranteed to be the actual minimum distance possible. From this point, it isn't possible to find a shorter distance than these recorded ones._
 
 - **For nodes not yet finalized (not in S):**
-  _Your answer here._
+  _The distances recorded here are currently the shortest path discovered, using the nodes that are already finalized to go through as steps. But there is still a possibility that a cheaper or shorter path exists going through nodes that haven't been finalized._
 
 ### Part 3b: Why Each Phase Holds
 
 > One to two bullets per phase. Maintenance must mention nonnegative edge weights.
 
 - **Initialization : why the invariant holds before iteration 1:**
-  _Your answer here._
+  _Before even the first step executes, the source node distance is 0 and all the nodes are set to inf. Also we haven't finalized any nodes yet, so the invariant holds._
 
 - **Maintenance : why finalizing the min-dist node is always correct:**
-  _Your answer here._
+  _Finalizing the min-dist node is always correct because this node will have the smallest distance tentatively, and since all the edge weights are non-negative. This means that a later path with a smaller distance to that same node, can't be produced._
 
 - **Termination : what the invariant guarantees when the algorithm ends:**
-  _Your answer here._
+  _When the algorithm finishes running, the heap is empty and all the reachable nodes are already finalized with their actual shortest path from the source node. Also, the nodes with inf still are unreachable._
 
 ### Part 3c: Why This Matters for the Route Planner
 
 > One sentence connecting correct distances to correct routing decisions.
 
-_Your answer here._
+_Ensuring that we have the correct distance, will allow the routing decisions to be made correctly by comparing the visitation orders to choose the route with the least amount of fuel used, 
+and having an incorrect ordering could produce a route that does not minimize fuel cost._
 
 ---
 
