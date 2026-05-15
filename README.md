@@ -33,31 +33,31 @@
 
 > List the source node types as a bullet list. For each, one-line reason.
 
-| Source Node Type | Why it is a source |
-|---|---|
-| _node type_ | _one-line reason_ |
-| _node type_ | _one-line reason_ |
+| Source Node Type | Why it is a source                                                                                                |
+|------------------|-------------------------------------------------------------------------------------------------------------------|
+| _spawn_          | All the paths will start from S or the spawn from torchbearer.py.                                                 |
+| _relics_         | After getting to each relic, the search has to find the lowest costing path either to the next relic or the exit. |
 
 ### Part 2b: Distance Storage
 
 > Fill in the table. No prose required.
 
-| Property | Your answer |
-|---|---|
-| Data structure name | |
-| What the keys represent | |
-| What the values represent | |
-| Lookup time complexity | |
-| Why O(1) lookup is possible | |
+| Property | Your answer                                                                                    |
+|---|------------------------------------------------------------------------------------------------|
+| Data structure name | nested dictionary (a dictionary within a dictionary).                                          |
+| What the keys represent | The inner keys represent the destination nodes, while the outer keys represent source nodes.   |
+| What the values represent | The smallest amount fuel will cost from the source node to the destination node.               |
+| Lookup time complexity | O(1)                                                                                           |
+| Why O(1) lookup is possible | Python dictionaries use hash tables, so this allows lookups to be direct, and therefore, O(1). |
 
 ### Part 2c: Precomputation Complexity
 
 > State the total complexity and show the arithmetic. Two to three lines max.
 
-- **Number of Dijkstra runs:** _your answer_
-- **Cost per run:** _your answer_
-- **Total complexity:** _your answer_
-- **Justification (one line):** _your answer_
+- **Number of Dijkstra runs:** _for r number of relics, it would be r + 1_
+- **Cost per run:** _O(m log n)_
+- **Total complexity:** _O((r + 1) * m log n)_
+- **Justification (one line):** _You have to run Dijkstra once on the spawn node, and then an aditional run on each of the relic nodes._
 
 ---
 

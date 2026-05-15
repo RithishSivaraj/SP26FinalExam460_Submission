@@ -67,7 +67,17 @@ def select_sources(spawn, relics, exit_node):
 
     TODO
     """
-    pass
+    selected_sources = []       # storing all the nodes to be used in Dijkstra source nodes.
+    if spawn not in selected_sources:
+        selected_sources.append(spawn)      # adding the spawn node first
+
+    r = 0
+    while r < len(relics):      # looping through and adding all the relic nodes if it hasn't already been added.
+        if relics[r] not in selected_sources:
+            selected_sources.append(relics[r])
+        r = r + 1
+
+    return selected_sources
 
 
 def run_dijkstra(graph, source):
@@ -86,7 +96,35 @@ def run_dijkstra(graph, source):
 
     TODO
     """
-    pass
+    node_distances = {}     # creating empty dict to store the shortest distance between the spawn and the node
+    for node in graph.keys():
+        node_distances[node] = float('inf')     # setting all the node distances to inf, so they are unreachable until it is proven they are reachable.
+
+    node_distances[source] = 0      # since distance from source to source is just 0
+    pr_queue = []       # creating an empty priority queue
+    heapq.heappush(pr_queue, (0, source))       # adding the source node ro the priority queue with its distance.
+    while len(pr_queue) > 0:
+        smallest_node = heapq.heappop(pr_queue)     # removing node with the shortest distance currently
+        distance_current = smallest_node[0]
+        node_current = smallest_node[1]         # seperated the tuple into distance and node.
+
+        if distance_current > node_distances[node_current]:
+            continue        # skipping if a better entry was found
+
+        neighbor_nodes = graph[node_current]            # all the neighboring nodes which are reachable directly from the current node.
+        for edge in neighbor_nodes:
+            neighbor_node = edge[0]
+            cost = edge[1]                      # getting the destination node and the cost of the edge.
+
+            total_cost = distance_current + cost        # getting the total cost of getting to that neighboring node from the current node.
+
+            if total_cost < node_distances[neighbor_node]:          # checking to see if the new path is cheaper.
+                node_distances[neighbor_node] = total_cost
+                heapq.heappush(pr_queue, (total_cost, neighbor_node))
+
+    return node_distances
+
+    # pass
 
 
 def precompute_distances(graph, spawn, relics, exit_node):
@@ -106,7 +144,13 @@ def precompute_distances(graph, spawn, relics, exit_node):
 
     TODO
     """
-    pass
+    sources = select_sources(spawn, relics, exit_node)      # selecting the nodes to run Dijkstras
+    distance_table = {}                     # creating a nested dict to store the shortest path tables
+    for s in sources:
+        distance_table[s] = run_dijkstra(graph, s)      # running dijkstras one time from the selected source nodes.
+
+    return distance_table
+    # pass
 
 
 # =============================================================================
