@@ -250,7 +250,15 @@ def find_optimal_route(dist_table, spawn, relics, exit_node):
 
     TODO
     """
-    pass
+    relics_remaining = set(relics)      # changing the relic list to a set.
+    relics_visited_order = []
+
+    best = [float("inf"),[]]        # storing both best[0] (min fuel cost) and best[1] (best visitation order) in a list.
+    _explore(dist_table, spawn, relics_remaining, relics_visited_order,0, exit_node, best)      # recursing with a starting cost of 0
+
+    return best[0], best[1]
+
+    # pass
 
 
 def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
@@ -282,7 +290,27 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
     explaining why it is safe (cannot skip the optimal solution).
     This comment is graded.
     """
-    pass
+    if cost_so_far >= best[0]:       # not exploring this branch if the current cost is higher or equal to the best price already.
+        return
+
+    if len(relics_remaining) == 0:      # if all the relics have been found
+        cost_to_exit = dist_table[current_loc][exit_node]
+        cost_total = cost_so_far + cost_to_exit     # calculating the total cost of the total route, after also considering the exit cost.
+        if cost_total < best[0]:
+            best[0] = cost_total
+            best[1] = relics_visited_order.copy()       # if that route is better, we are updating the best cost, and also saving the order.
+        return
+
+    for relic in list(relics_remaining):        # visiting all the relics yet to be visited.
+        cost_to_travel = dist_table[current_loc][relic]
+        if cost_to_travel != float('inf'):
+            relics_remaining.remove(relic)
+            relics_visited_order.append(relic)      # if the relic is actually reachable, adding it to the visited
+
+            _explore(dist_table, relic, relics_remaining, relics_visited_order, cost_so_far + cost_to_travel, exit_node, best)  # recursing from that relic
+            relics_visited_order.pop()
+            relics_remaining.add(relic)     # backtracking and removing the relic from the route, and also changing it to an unvisited relic for the next go.
+    # pass
 
 
 # =============================================================================
@@ -306,7 +334,11 @@ def solve(graph, spawn, relics, exit_node):
 
     TODO
     """
-    pass
+    dist_table = precompute_distances(graph, spawn, relics, exit_node)
+    best_total_cost, best_relic_order = find_optimal_route(dist_table, spawn, relics, exit_node)
+
+    return best_total_cost, best_relic_order
+    # pass
 
 
 # =============================================================================

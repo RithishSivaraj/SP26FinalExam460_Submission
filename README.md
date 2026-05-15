@@ -115,30 +115,30 @@ and having an incorrect ordering could produce a route that does not minimize fu
 > Document the three components of your search state as a table.
 > Variable names here must match exactly what you use in torchbearer.py.
 
-| Component | Variable name in code | Data type | Description |
-|---|---|---|---|
-| Current location | | | |
-| Relics already collected | | | |
-| Fuel cost so far | | | |
+| Component | Variable name in code | Data type  | Description                                             |
+|---|-----------------------|------------|---------------------------------------------------------|
+| Current location | current_loc           | node       | Describes the node the current search is positioned at. |
+| Relics already collected | relics_visited_order  | list[node] | stores the order of the relics being visited till now.  |
+| Fuel cost so far | cost_so_far           | float      | current total of the fuel cost on the current path.     |
 
 ### Part 5b: Data Structure for Visited Relics
 
 > Fill in the table.
 
-| Property | Your answer |
-|---|---|
-| Data structure chosen | |
-| Operation: check if relic already collected | Time complexity: |
-| Operation: mark a relic as collected | Time complexity: |
-| Operation: unmark a relic (backtrack) | Time complexity: |
-| Why this structure fits | |
+| Property | Your answer                                                                                                                      |
+|---|----------------------------------------------------------------------------------------------------------------------------------|
+| Data structure chosen | set                                                                                                                              |
+| Operation: check if relic already collected | Time complexity: O(1)                                                                                                            |
+| Operation: mark a relic as collected | Time complexity:   O(1)                                                                                                          |
+| Operation: unmark a relic (backtrack) | Time complexity:    O(1)                                                                                                         |
+| Why this structure fits | The python set will allow existence checks to be run faster, and is more efficient to add or remove operations during recursion. |
 
 ### Part 5c: Worst-Case Search Space
 
 > Two bullets.
 
-- **Worst-case number of orders considered:** _Your answer (in terms of k)._
-- **Why:** _One-line justification._
+- **Worst-case number of orders considered:** _k!_
+- **Why:** _In the worst case, we may need to go through every single order of relic visitation possible._
 
 ---
 

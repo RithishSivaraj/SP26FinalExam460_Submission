@@ -48,11 +48,11 @@ _Finished my responses for the three parts in algorithm correctness. Also update
 _Completed my responses for part 4 of the assignment. I updated torchbearer.py with the return of those responses to reflect. Will be commiting again now._
 
 ---
-## Entry 5 – [Date]: [Description]
+## Entry 5 – 05/14: Part 5 & 6 and Solve():
 
 
 
-_Your entry here._
+_Completed implementing the functions from part 5 and 6, and also completed solve(). I ran into a few bugs due to syntax but fixed them all and passing all the tests now. I also finished the README portion of 5 and still need to complete 6. I will be making another commit now._
 
 ---
 ## Entry 6 – [Date]: [Description]
@@ -81,7 +81,7 @@ _Your entry here._
 | Part 1: Problem Analysis | 0.7             |
 | Part 2: Precomputation Design | 1.5             |
 | Part 3: Algorithm Correctness | 0.75            |
-| Part 4: Search Design |                 |
+| Part 4: Search Design | 0.5             |
 | Part 5: State and Search Space |                 |
 | Part 6: Pruning |                 |
 | Part 7: Implementation |                 |
